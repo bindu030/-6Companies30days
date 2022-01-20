@@ -1,0 +1,28 @@
+vector<int> subarraySum(int arr[], int n, long long s)
+    {
+          //sort(arr,arr+n);
+        int l=0,e=0;
+      
+        long long sum=0;
+        vector<int>v;
+        while(e<n)
+        {
+            sum+=arr[e];
+            while(l<e && sum>s)
+            {
+                sum-=arr[l];
+               
+                l++;
+            }
+            if(sum==s)
+            {
+                v.push_back(l+1);
+                v.push_back(e+1);
+                return v;
+            }
+            e++;
+        }
+      return{-1};
+       // return v;
+        // Your code here
+    }
