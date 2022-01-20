@@ -1,0 +1,30 @@
+vector<string>res;
+    void   help(int l,int r,int n,string s){
+        if(l==r && r==n) {res.push_back(s); return;}
+        //if(r>l) return ;
+        if(l<n){
+            s+='(';
+            help(l+1,r,n,s);
+            if(r<l){
+                s.pop_back();
+                s+=')';
+                help(l,r+1,n,s);
+                s.pop_back();
+            }
+            
+            
+        }
+        else if(l==n){
+            if(r<l){
+                s+=')';
+                help(l,r+1,n,s);
+            }
+        }
+    }
+    vector<string> AllParenthesis(int n) 
+    {
+        // Your code goes here 
+        string ans="";
+        help(0,0,n,ans);
+        return res;
+    }
