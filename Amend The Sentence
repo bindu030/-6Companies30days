@@ -1,0 +1,27 @@
+ string amendSentence (string s)
+    {
+        // your code here
+        string ans="";
+        int l=0;
+        int f=0;
+        for(int i=0;i<s.size();i++){
+            if(s[i]-'a'<0 || s[i]-'a'>25){
+                s[i]='a'+s[i]-'A';
+                
+               if(f==1){ ans+=s.substr(l,i-l );
+                ans+=" "; 
+                   
+               }
+                l=i;
+            }
+            f=1;
+            
+        }
+        if(f==1){ ans+=s.substr(l );
+                //ans+=" "; 
+                   
+               }
+        
+        return ans.substr(0);
+        
+    }
